@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Diwali 🪔</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Georgia, serif;
+    color: #fff4c2;
+    background: radial-gradient(circle, #7a1608, #250306 75%);
+}
+
+.card {
+    padding: 35px 20px;
+    width: 90%;
+    max-width: 650px;
+    border: 2px solid #ffd76a;
+    border-radius: 25px;
+    background: rgba(45, 0, 0, 0.55);
+    box-shadow: 0 0 35px #ff9d00;
+    z-index: 2;
+}
+
+h1 {
+    font-size: clamp(35px, 8vw, 65px);
+    color: #ffd76a;
+    text-shadow: 0 0 15px #ff8c00;
+    margin: 20px 0;
+    animation: glow 2s infinite alternate;
+}
+
+.subtitle {
+    font-size: 21px;
+    color: #ffe9a6;
+    line-height: 1.7;
+}
+
+.diyas {
+    font-size: 55px;
+    margin: 25px 0;
+    animation: float 2s infinite ease-in-out;
+}
+
+button {
+    padding: 14px 28px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff9800, #ffe082);
+    color: #641000;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px #ffc107;
+}
+
+#message {
+    margin-top: 22px;
+    font-size: 21px;
+    color: #ffe082;
+}
+
+.sparkle {
+    position: absolute;
+    bottom: -30px;
+    color: #ffd700;
+    animation: rise linear infinite;
+    pointer-events: none;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #ff9800; }
+    to { text-shadow: 0 0 30px #ffeb3b, 0 0 45px #ff6f00; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="diyas">🪔 ✨ 🪔</div>
+
+    <h1>Happy Diwali!</h1>
+
+    <p class="subtitle">
+        May the festival of lights brighten your life<br>
+        with happiness, love, success and prosperity.
+    </p>
+
+    <div class="diyas">🌸 🪔 🌸</div>
+
+    <p class="subtitle">Let your life shine as brightly as the diyas!</p>
+
+    <button onclick="celebrate()">Celebrate Diwali 🎆</button>
+
+    <p id="message"></p>
+</div>
+
+<script>
+const symbols = ["✨", "✦", "🌟", "🪔", "🌸"];
+
+function createSparkle() {
+    const sparkle = document.createElement("span");
+    sparkle.className = "sparkle";
+    sparkle.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.fontSize = (12 + Math.random() * 22) + "px";
+    sparkle.style.animationDuration = (4 + Math.random() * 6) + "s";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 10000);
+}
+
+setInterval(createSparkle, 300);
+
+function celebrate() {
+    document.getElementById("message").textContent =
+        "🎆 Wishing you and your family a joyful Diwali! 🪔";
+
+    for (let i = 0; i < 35; i++) {
+        setTimeout(createSparkle, i * 70);
+    }
+}
+</script>
+
+</body>
+</html>
